@@ -1,0 +1,29 @@
+mixed-port: 17890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080]
+      override-destination: false
+    TLS:
+      ports: [443]
+      override-destination: false
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  nameserver:
+    - https://dns.alidns.com/dns-query
+rules:
+  - DOMAIN,yk-ssp-ad.cp31.ott.cibntv.net,REJECT
+  - DOMAIN,valipl.cp31.ott.cibntv.net,REJECT
+  - DOMAIN,adx-open-service.youku.com,REJECT
+  - MATCH,DIRECT
