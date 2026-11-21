@@ -1,6 +1,6 @@
 # 新手资料包
 
-[在0.3测试版附件中下载 tv-home-ad-filter-starter-20261121.zip](https://github.com/koi-lee/tv-home-ad-filter-notes/releases/tag/v0.3-tested)。
+[在0.3测试版附件中下载 tv-home-ad-filter-starter-20261121-r2.zip](https://github.com/koi-lee/tv-home-ad-filter-notes/releases/tag/v0.3-tested)。
 
 下载并解压后，用浏览器打开start-here.html。它是离线阅读入口，说明适配范围、准备材料、电视端操作和恢复步骤。三张原始实机设置图和两张经AI辅助遮盖网络地址的参考图均在包内，断网也能查看。
 
@@ -17,3 +17,5 @@ shasum -a 256 -c SHA256SUMS.txt
 Windows可用Get-FileHash逐项核对；本文没有新增Windows端验收。若文件校验失败，停止安装并重新下载核对。
 
 GitHub预发布页可能不会显示“Latest”标记，请使用上面的具体版本链接，查看Assets附件。ZIP为固定日期快照，后续文档更新以仓库main及新版资料包为准。
+
+2026年11月21日r2资料版同步SEO/GEO文档入口、常见问题、英文摘要与引用信息，并修正Agent说明中过期的“无预编译APK”表述。助手APK和过滤配置未变；原ZIP保留为历史快照。

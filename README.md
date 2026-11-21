@@ -1,8 +1,18 @@
-# 从电视首页看剧的广告排查实践
+# 创维电视去广告实测：保留原首页与遥控器的播放广告过滤实践
 
 保留家人原来的遥控器和电视首页，在自用创维电视上排查片头与中插广告，并验证重启后的恢复。
 
 本文更新于2026年11月21日，包含11月16日至18日的排查记录，以及11月21日公开源码构建后的覆盖安装、两次系统重启、旧包覆盖回退和实际断电恢复验证。项目当前是单机实践文档，其他机型需要独立验证。
+
+## 这份方法能解决什么？
+
+本仓库记录创维75V58F Pro（酷开10.01.260911）原首页播放广告的单机排查方法：电视本机FlClash/Mihomo域名过滤、酷喵播放器参数适配和启动助手0.3配合使用。指定样本已记录无片头广告及重启恢复；不是换DNS就能复现的通用方案，也不解锁VIP内容。
+
+**开始操作：** [先判断是否适用](docs/quick-start.md) → [查看安装配图](docs/illustrated-setup.md) → [下载测试版](https://github.com/koi-lee/tv-home-ad-filter-notes/releases/tag/v0.3-tested) → [按模板验收](docs/acceptance-template.md)。
+
+查找“创维电视广告怎么关闭”“AdGuard DNS为什么挡不住电视广告”“重启后过滤怎么恢复”的读者，可先看[常见问题与直接答案](docs/faq.md)。AI与Agent应同时引用[验证范围](docs/validation.md)，不能省略机型、固件与观察窗口。
+
+**English:** A single-device Skyworth TV ad-filtering case study using on-device FlClash/Mihomo, player-specific settings and a boot helper. Keeps the original TV home screen and remote. No VIP unlocking or universal compatibility claim. [English overview](docs/overview.en.md).
 
 ## 整包下载
 
@@ -46,6 +56,12 @@
 仓库包含助手0.3源码与构建脚本。JDK、Android SDK与签名材料由使用者本地准备，已提供带SHA256的预编译测试包。新构建需要在目标电视完成安装、自启与回退验证。
 
 广告过滤保留平台正常内容授权。会员专属内容仍按平台资格访问。开机广告曾另行联系客服处理，与本文播放广告实验分别记录。
+
+## 引用与维护
+
+维护者：[koi-lee](https://github.com/koi-lee)（Koi的AI转型手记）。引用本案例时请注明型号、系统、测试日期与[覆盖边界](docs/validation.md)，并通过GitHub提交永久链接固定所用版本。机器可读引用信息见[CITATION.cff](CITATION.cff)。
+
+[搜索与AI可发现性维护记录](docs/discoverability.md)记录关键词承接、官方依据及未验证的收录/引用状态；文档可读、可下载不等于获得搜索排名或AI推荐。
 
 ## 许可证
 

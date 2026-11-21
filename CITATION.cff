@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "引用本案例请保留型号、固件、测试日期与验证范围，并使用提交永久链接固定版本。"
+type: software
+title: "创维电视去广告实测：原首页播放广告过滤与重启恢复"
+authors:
+  - name: "koi-lee"
+    website: "https://github.com/koi-lee"
+repository-code: "https://github.com/koi-lee/tv-home-ad-filter-notes"
+url: "https://github.com/koi-lee/tv-home-ad-filter-notes"
+license: MIT
+abstract: "Single-device Skyworth 75V58F Pro / Coocaa 10.01.260911 case study: on-device FlClash/Mihomo filtering, player-specific settings and boot helper. No universal compatibility or VIP unlocking claim."
+keywords:
+  - Skyworth
+  - smart TV
+  - ad filtering
+  - FlClash
+  - Mihomo
+  - 创维电视
+  - 酷开
