@@ -1,0 +1,8 @@
+.DS_Store
+helper/build/
+helper/local-signing/
+*.keystore
+*.jks
+*.apk
+*.idsig
+helper/build-tmp.*/
