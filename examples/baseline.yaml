@@ -1,0 +1,7 @@
+# 默认直连基线，导入后由客户端开启本地VPN并验证。
+mixed-port: 17890
+allow-lan: false
+mode: rule
+log-level: info
+rules:
+  - MATCH,DIRECT
