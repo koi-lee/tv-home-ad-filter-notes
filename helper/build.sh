@@ -21,12 +21,17 @@ mkdir -p "$task_build/classes" "$task_build/dex" build local-signing
 (cd "$task_build/dex" && zip -q "$task_build/unsigned.apk" classes.dex)
 # This key is local test material. Preserve it locally for compatible updates.
 # The well-known password protects no shared secret and is for local tests only.
-if [ ! -f local-signing/test.keystore ]; then
-  "$TV_JAVA_DIR/bin/keytool" -genkeypair -keystore local-signing/test.keystore -storepass android -keypass android -alias localhelper -keyalg RSA -keysize 2048 -validity 3650 -dname 'CN=TV Helper Local Test'
-  chmod 600 local-signing/test.keystore
+task_signing_key="${TV_SIGNING_KEY:-$PWD/local-signing/test.keystore}"
+if [ -n "${TV_SIGNING_KEY:-}" ] && [ ! -f "$task_signing_key" ]; then
+  echo "Configured signing key does not exist" >&2
+  exit 1
+fi
+if [ ! -f "$task_signing_key" ]; then
+  "$TV_JAVA_DIR/bin/keytool" -genkeypair -keystore "$task_signing_key" -storepass android -keypass android -alias localhelper -keyalg RSA -keysize 2048 -validity 3650 -dname 'CN=TV Helper Local Test'
+  chmod 600 "$task_signing_key"
 fi
 "$TV_BUILD_TOOLS/zipalign" -f 4 "$task_build/unsigned.apk" "$task_build/aligned.apk"
-"$TV_JAVA_DIR/bin/java" -jar "$TV_BUILD_TOOLS/lib/apksigner.jar" sign --ks local-signing/test.keystore --ks-pass pass:android --key-pass pass:android --out "$task_build/TvFilterHelper.apk" "$task_build/aligned.apk"
+"$TV_JAVA_DIR/bin/java" -jar "$TV_BUILD_TOOLS/lib/apksigner.jar" sign --ks "$task_signing_key" --ks-pass pass:android --key-pass pass:android --out "$task_build/TvFilterHelper.apk" "$task_build/aligned.apk"
 "$TV_JAVA_DIR/bin/java" -jar "$TV_BUILD_TOOLS/lib/apksigner.jar" verify --verbose "$task_build/TvFilterHelper.apk"
 cp "$task_build/TvFilterHelper.apk" build/TvFilterHelper.apk
 echo "Built helper/build/TvFilterHelper.apk"

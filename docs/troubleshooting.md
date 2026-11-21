@@ -32,4 +32,4 @@ ADB连接失败时重新核对电视亮屏、联网、实时IP和本地授权。
 - [Android VPN](https://developer.android.com/develop/connectivity/vpn)
 - [Rethink](https://github.com/celzero/rethink-app)
 
-第三方程序、规则和后续源码分发需各自核对许可与上游义务。本文草稿没有选定开源许可证。
+第三方程序、规则和后续源码分发需各自核对许可与上游义务。本仓库采用MIT许可证，第三方项目不受本仓库的许可声明替代。
