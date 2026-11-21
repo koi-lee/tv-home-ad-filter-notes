@@ -4,6 +4,10 @@
 
 适用记录为创维75V58F Pro、酷开10.01.260911、原酷喵插件链路。助手会尝试写入四项播放器属性，开启本地过滤器并返回指定原首页。它没有自动机型门槛或完整规则健康检查，安装前由操作者确认适配条件。其他设备须先评估，不能直接试装后当作兼容。
 
+## 预编译测试包
+
+[0.3测试版](https://github.com/koi-lee/tv-home-ad-filter-notes/releases/tag/v0.3-tested)提供本机已验证签名的APK及SHA256。适用范围和安装配图见[配图指南](../docs/illustrated-setup.md)。此包不包含FlClash，安装后仍需用户授权及目标设备验收。
+
 ## 构建
 
 需要JDK17、包含aapt2/zipalign/d8/apksigner的Android构建工具，以及Android API28的android.jar。源码minSdk26、targetSdk28。构建脚本适用于具备zip的macOS或Linux。Windows使用等价环境或自行移植，本轮未测。
